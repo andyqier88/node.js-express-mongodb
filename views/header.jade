@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta(charset = "UTF-8")
+    title=title
+    link(rel="stylesheet",href = "/stylesheets/header.css")
+    link(rel="stylesheet",href = "/bootstrap/dist/css/bootstrap.min.css")
+    script(src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
+  body
+    div.wrapper
+      div.logo
+        img(src="/images/logo.jpg")
+      div.nav
+          ul
+            li 
+              a(href="/") 首页
+            li 
+              a(href="") 热梗
+            li 
+              a(href="") 图梗
+            li#reg
+              a(href="#" data-toggle="modal" data-target="#RegModal") 注册
+            li#log
+              a(href="#") 登陆
+    block index_content
+    div.modal.fade#RegModal(tabindex="-1" role="dialog")
+      div.modal-dialog(role="document")
+        from(action="/user/signup" method="post")
+          div.modal-content
+            div.modal-header
+              button.close(data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true")
+              h4.modal-title(style="text-align:center") 注册页面
+            div.modal-body
+              div(style="text-align:center;margin-bottom:10px;")
+                span 注册: 
+                input(type="text",name = "name")
+              div(style="text-align:center")
+                span 登录: 
+                input(type="password",name="password")
+            div.modal-footer
+              button.btn.btn-default(data-dismiss="modal") 关闭
+              button.btn.btn-primary(type="submit") 提交
+        
+    script(type="text/javascript").
+     
